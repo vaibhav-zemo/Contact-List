@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/0e5617169c.js" crossorigin="anonymous"></script>
+    <title>
+        <%=title%>
+    </title>
+</head>
+
+<body>
+    <header>
+        <p id="icon"><i class="fas fa-address-book"></i></p>
+        <h1>Contact List</h1>
+    </header>
+
+    <div>
+        <ul>
+            <% for(let i of contact_list) {%>
+                <li>
+                    <p id="first">
+                        <%= i.name %>
+                    </p>
+                    <p id="second">
+                        <%= i.number %>
+                    </p>
+                    <a href="/delete-contact/?id=<%= i._id %>" id="delete">
+                        <p class="fas fa-window-close">
+                        </p>
+                    </a>
+                </li>
+                <%}%>
+        </ul>
+    </div>
+
+    <form action="/create-contact" method="post">
+        <input type="text" name="name" placeholder="Enter the name" required>
+        <input type="number" name="number" placeholder="Enter the number" required>
+        <input id="add" type="submit" value="Add">
+    </form>
+
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
